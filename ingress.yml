@@ -1,0 +1,30 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: flowers
+  annotations:
+    dev.okteto.com/generate-host: "true"
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /
+            backend:
+              serviceName: frontend
+              servicePort: 80
+          - path: /api
+            backend:
+              serviceName: api
+              servicePort: 8000
+          - path: /login
+            backend:
+              serviceName: api
+              servicePort: 8000
+          - path: /logout
+            backend:
+              serviceName: api
+              servicePort: 8000
+          - path: /update_password
+            backend:
+              serviceName: api
+              servicePort: 8000

@@ -1,0 +1,7 @@
+name: api
+command: bash
+environment:
+  - DJANGO_ENV=development
+  - DEBUG=True
+sync:
+  - .:/usr/src/app

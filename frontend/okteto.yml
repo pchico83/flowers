@@ -1,0 +1,10 @@
+name: frontend
+image: okteto.dev/fromtend:dev
+command: bash
+sync:
+  - .:/usr/src/app
+resources:
+  limits:
+    cpu: "1"
+    memory: 2Gi
+
