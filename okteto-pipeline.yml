@@ -1,0 +1,7 @@
+icon: https://www.flaticon.com/svg/static/icons/svg/85/85118.svg
+deploy:
+  - kubectl apply -f ingress.yml
+  - okteto stack deploy --build
+devs:
+  - api/okteto.yml
+  - frontend/okteto.yml
