@@ -4,7 +4,7 @@
 
 Deploy the **Chat App** on Okteto by clicking the following button:
 
-[![Develop on Okteto](https://okteto.com/develop-okteto.svg)](https://cloud.okteto.com/deploy)
+[![Develop on Okteto](https://okteto.com/develop-okteto.svg)](https://cloud.okteto.com/deploy?branch=main)
 
 Or alternatively, execute the following command:
 
