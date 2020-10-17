@@ -1,5 +1,5 @@
 name: frontend
-image: okteto.dev/fromtend:dev
+image: okteto.dev/frontend:dev
 command: bash
 sync:
   - .:/usr/src/app
