@@ -6,11 +6,11 @@ import * as actions from './store/authActions';
 
 
 function App(props) {
-
+  const { setAuthenticatedIfRequired } = props;
   // Similar to componentDidMount and componentDidUpdate:
   React.useEffect(() => {
-    props.setAuthenticatedIfRequired();
-  }, []);
+    setAuthenticatedIfRequired();
+  }, [setAuthenticatedIfRequired]);
 
   return (
     <div className="App">
@@ -33,7 +33,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     setAuthenticatedIfRequired: () => dispatch(actions.authCheckState()),
-    logout: () => dispatch(actions.authLogout()) 
+    logout: () => dispatch(actions.authLogout())
   }
 }
 
