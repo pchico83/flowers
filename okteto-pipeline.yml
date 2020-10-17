@@ -1,4 +1,4 @@
-icon: https://www.flaticon.com/svg/static/icons/svg/85/85118.svg
+icon: https://raw.githubusercontent.com/pchico83/flowers/main/icon.png
 deploy:
   - kubectl apply -f ingress.yml
   - okteto stack deploy --build
