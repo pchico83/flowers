@@ -6,6 +6,15 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import { Container, Grid, Paper, Typography, Slider, Button } from '@material-ui/core';
 
+const flowers = {
+  setosa: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Iris_setosa.JPG/360px-Iris_setosa.JPG',
+  virginica: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Iris_virginica_2.jpg/480px-Iris_virginica_2.jpg',
+  versicolor: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Blue_Flag%2C_Ottawa.jpg/480px-Blue_Flag%2C_Ottawa.jpg',
+  oxalis: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Oxalis-pes-caprae-36-Zachi-Evenor.jpg/359px-Oxalis-pes-caprae-36-Zachi-Evenor.jpg'
+};
+
+const unknownImage = 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Question_mark_%28black%29.svg/480px-Question_mark_%28black%29.svg.png';
+
 // ########################################################
 // Material UI inline styles
 // ########################################################
@@ -20,7 +29,8 @@ const useStyles = makeStyles((theme) => ({
     title: {
         marginTop: theme.spacing(2),
         marginBottom: theme.spacing(2),
-        padding: theme.spacing(2), paddingLeft: theme.spacing(4),
+        padding: theme.spacing(4),
+        paddingTop: theme.spacing(3),
         color: theme.palette.primary.main,
     },
     sliders: {
@@ -32,6 +42,9 @@ const useStyles = makeStyles((theme) => ({
     },
     slidertop: {
         marginTop: theme.spacing(4),
+    },
+    image: {
+        width: '100%'
     }
 }));
 
@@ -123,7 +136,7 @@ function Home(props) {
             <CssBaseline />
             <Container fixed className={classes.container}>
                 <Grid container alignItems="center" spacing={3}>
-                    <Grid item xs={6}>
+                    <Grid item xs={5}>
                         <Paper className={classes.title} elevation={0}>
                             <Typography variant="h5">
                                 Flower Dimensions
@@ -193,11 +206,11 @@ function Home(props) {
                         </Paper>
                     </Grid>
                     <Grid item xs={2}>
-                        <Button variant="contained" color="primary" onClick={handlePredict}>
+                        <Button style={{ width: '100%' }} variant="contained" color="primary" onClick={handlePredict}>
                             Predict
                         </Button>
                     </Grid>
-                    <Grid item xs={4}>
+                    <Grid item xs={5}>
                         <Paper className={classes.title} elevation={0}>
                             <Typography variant="caption" display="inline">
                                 Flower: <span>&nbsp;</span>
@@ -205,6 +218,13 @@ function Home(props) {
                             <Typography variant="body1" display="inline">
                                 {prediction}
                             </Typography>
+                            {prediction &&
+                              <img
+                                className={classes.image}
+                                src={flowers[prediction] || unknownImage}
+                                alt="Flower"
+                              />
+                            }
                         </Paper>
                     </Grid>
                 </Grid>
