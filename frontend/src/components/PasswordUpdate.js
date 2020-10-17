@@ -53,7 +53,7 @@ function PasswordUpdate(props) {
     } else {
       let headers = { 'Authorization': `Token ${props.token}` };
       let method = 'post';
-      let url = settings.API_SERVER + '/api/auth/update_password/';
+      let url = settings.API_SERVER + '/auth/update_password/';
       let passwordFormData = new FormData();
       passwordFormData.append("new_password1", new_password1);
       passwordFormData.append("new_password2", new_password2);

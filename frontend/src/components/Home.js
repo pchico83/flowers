@@ -68,7 +68,7 @@ const marks = [{ value: 0 }, { value: 10 }];
 // The main Home component returned by this Module
 // ########################################################
 function Home(props) {
-    // Material UI Classes 
+    // Material UI Classes
     const classes = useStyles();
 
     // React hook state variable - Dimensions
@@ -91,7 +91,7 @@ function Home(props) {
         );
     };
 
-    // Function to make the predict API call and update the state variable - Prediction 
+    // Function to make the predict API call and update the state variable - Prediction
     const handlePredict = event => {
         // Submit Iris Flower measured dimensions as form data
         let irisFormData = new FormData();
@@ -102,7 +102,7 @@ function Home(props) {
 
         //Axios variables required to call the predict API
         let headers = { 'Authorization': `Token ${props.token}` };
-        let url = settings.API_SERVER + '/api/predict/';
+        let url = settings.API_SERVER + '/predict/';
         let method = 'post';
         let config = { headers, method, url, data: irisFormData };
 
