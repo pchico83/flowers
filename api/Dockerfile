@@ -24,5 +24,4 @@ WORKDIR /usr/src/app
 COPY . .
 COPY bashrc /root/.bashrc
 
-RUN chmod +x init.sh
-RUN chmod +x manage.py
+RUN chmod +x init-db.sh wait-for-it.sh manage.py

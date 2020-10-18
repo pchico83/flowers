@@ -55,17 +55,4 @@ spec:
           command:
             - sh
             - -c
-            - ./init.sh && gunicorn flowers.wsgi:application --bind 0.0.0.0:8000
-          livenessProbe:
-            initialDelaySeconds: 30
-            periodSeconds: 1
-            httpGet:
-              path: /
-              port: http
-          readinessProbe:
-            initialDelaySeconds: 30
-            periodSeconds: 1
-            httpGet:
-              path: /
-              port: http
-
+            - ./init-db.sh && gunicorn flowers.wsgi:application --bind 0.0.0.0:8000
