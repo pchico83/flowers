@@ -27,7 +27,7 @@ spec:
             - name: DJANGO_ENV
               value: production
             - name: DEBUG
-              value: 0
+              value: "0"
             - name: SECRET_KEY
               value: thisistheflowerssecret
             - name: DJANGO_ADMIN_USER
@@ -49,7 +49,7 @@ spec:
             - name: DB_HOST
               value: db
             - name: DB_PORT
-              value: 5432
+              value: "5432"
       containers:
         - name: api
           image: {{ .Values.api.image }}:{{ .Values.tag }}
@@ -57,7 +57,7 @@ spec:
             - name: DJANGO_ENV
               value: production
             - name: DEBUG
-              value: 0
+              value: "0"
             - name: SECRET_KEY
               value: thisistheflowerssecret
             - name: DJANGO_ADMIN_USER
@@ -79,7 +79,7 @@ spec:
             - name: DB_HOST
               value: db
             - name: DB_PORT
-              value: 5432
+              value: "5432"
           ports:
             - name: http
               containerPort: 8000
