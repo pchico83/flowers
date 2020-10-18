@@ -21,6 +21,6 @@ RUN pip install --no-cache /wheels/*
 
 WORKDIR /usr/src/app
 
-EXPOSE 8000
-
 COPY . .
+
+RUN chmod +x /usr/src/app/init.sh
