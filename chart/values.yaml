@@ -1,0 +1,14 @@
+tag: dev
+
+api:
+  replicaCount: 1
+  image: okteto.dev/api
+
+frontend:
+  replicaCount: 1
+  image: okteto.dev/frontend
+
+db:
+  user: admin
+  password: okteto
+  database: prediction

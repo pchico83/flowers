@@ -1,7 +1,8 @@
 icon: https://raw.githubusercontent.com/pchico83/flowers/main/icon.png
 deploy:
-  - kubectl apply -f ingress.yml
-  - okteto stack deploy --build
+  - okteto build -t okteto.dev/api:${OKTETO_GIT_COMMIT} api
+  - okteto build -t okteto.dev/frontend:${OKTETO_GIT_COMMIT} frontend
+  - helm upgrade --install movies chart --set tag=${OKTETO_GIT_COMMIT}
 devs:
   - api/okteto.yml
   - frontend/okteto.yml

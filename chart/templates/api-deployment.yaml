@@ -1,0 +1,86 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api
+  labels:
+    {{- include "movies.labels" . | nindent 4 }}
+    app.kubernetes.io/component: api
+spec:
+  replicas: {{ .Values.api.replicaCount }}
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: api
+      app.kubernetes.io/instance: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: api
+        app.kubernetes.io/instance: {{ .Release.Name }}
+    spec:
+      terminationGracePeriodSeconds: 0
+      initContainers:
+        - name: load-data
+          image: {{ .Values.api.image }}:{{ .Values.tag }}
+          command:
+            - init.sh
+          env:
+            - name: DJANGO_ENV
+              value: production
+            - name: DEBUG
+              value: 0
+            - name: SECRET_KEY
+              value: thisistheflowerssecret
+            - name: DJANGO_ADMIN_USER
+              value: admin
+            - name: DJANGO_ADMIN_EMAIL
+              value: admin@pkteto.com
+            - name: DJANGO_ADMIN_PASSWORD
+              value: okteto
+            - name: DATABASE
+              value: postgres
+            - name: DB_ENGINE
+              value: django.db.backends.postgresql
+            - name: DB_DATABASE
+              value: prediction
+            - name: DB_USER
+              value: admin
+            - name: DB_PASSWORD
+              value: okteto
+            - name: DB_HOST
+              value: db
+            - name: DB_PORT
+              value: 5432
+      containers:
+        - name: api
+          image: {{ .Values.api.image }}:{{ .Values.tag }}
+          env:
+            - name: DJANGO_ENV
+              value: production
+            - name: DEBUG
+              value: 0
+            - name: SECRET_KEY
+              value: thisistheflowerssecret
+            - name: DJANGO_ADMIN_USER
+              value: admin
+            - name: DJANGO_ADMIN_EMAIL
+              value: admin@pkteto.com
+            - name: DJANGO_ADMIN_PASSWORD
+              value: okteto
+            - name: DATABASE
+              value: postgres
+            - name: DB_ENGINE
+              value: django.db.backends.postgresql
+            - name: DB_DATABASE
+              value: prediction
+            - name: DB_USER
+              value: admin
+            - name: DB_PASSWORD
+              value: okteto
+            - name: DB_HOST
+              value: db
+            - name: DB_PORT
+              value: 5432
+          ports:
+            - name: http
+              containerPort: 8000
+              protocol: TCP
