@@ -5,3 +5,5 @@ environment:
   - DEBUG=True
 sync:
   - .:/usr/src/app
+forward:
+  - 5678:5678

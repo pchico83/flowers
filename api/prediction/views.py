@@ -26,7 +26,7 @@ class IRIS_Model_Predict(APIView):
         loaded_mlmodel = PredictionConfig.mlmodel 
         y_pred = loaded_mlmodel.predict(X)
         y_pred = pd.Series(y_pred)
-        target_map = {0: 'setosa', 1: 'versicolor', 2: 'virginica'}
+        target_map = {0: 'setosa', 1: 'versicolor', 2: 'virginica'} #oxalis
         y_pred = y_pred.map(target_map).to_numpy()
         response_dict = {"Flower": y_pred[0]}
         return Response(response_dict, status=200)

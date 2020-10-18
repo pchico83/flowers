@@ -15,6 +15,10 @@ def main():
             "available on your PYTHONPATH environment variable? Did you "
             "forget to activate a virtual environment?"
         ) from exc
+
+    if not os.getenv("RUN_MAIN"):
+      import debugpy
+      debugpy.listen(("0.0.0.0", 5678))
     execute_from_command_line(sys.argv)
 
 
