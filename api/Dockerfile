@@ -22,5 +22,7 @@ RUN pip install --no-cache /wheels/*
 WORKDIR /usr/src/app
 
 COPY . .
+COPY bashrc /root/.bashrc
 
-RUN chmod +x /usr/src/app/init.sh
+RUN chmod +x init.sh
+RUN chmod +x manage.py

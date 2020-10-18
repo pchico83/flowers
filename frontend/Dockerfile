@@ -10,6 +10,7 @@ RUN apk add --no-cache --virtual .gyp \
         make \
         g++
 
+COPY bashrc /root/.bashrc
 
 FROM dev as builder
 

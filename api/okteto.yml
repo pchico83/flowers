@@ -7,3 +7,7 @@ sync:
   - .:/usr/src/app
 forward:
   - 5678:5678
+resources:
+  limits:
+    cpu: 1.5
+    memory: 3Gi
