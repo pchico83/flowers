@@ -21,9 +21,6 @@ RUN pip install --no-cache /wheels/*
 
 WORKDIR /usr/src/app
 
-COPY ./entrypoint.sh /usr/src/app/entrypoint.sh
+EXPOSE 8000
 
 COPY . .
-
-RUN chmod +x /usr/src/app/entrypoint.sh
-ENTRYPOINT ["/usr/src/app/entrypoint.sh"]
