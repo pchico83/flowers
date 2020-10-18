@@ -1,4 +1,4 @@
-# Movies
+# Flowers
 
 This example shows how to leverage Okteto to deploy and develop a Django + React application in Kubernetes.
 

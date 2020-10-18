@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: frontend
   labels:
-    {{- include "movies.labels" . | nindent 4 }}
+    {{- include "flowers.labels" . | nindent 4 }}
     app.kubernetes.io/component: frontend
 spec:
   replicas: {{ .Values.frontend.replicaCount }}

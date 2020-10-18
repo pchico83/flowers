@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: api
   labels:
-    {{- include "movies.labels" . | nindent 4 }}
+    {{- include "flowers.labels" . | nindent 4 }}
     app.kubernetes.io/component: api
 spec:
   replicas: {{ .Values.api.replicaCount }}
